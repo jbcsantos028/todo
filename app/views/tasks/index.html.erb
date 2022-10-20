@@ -1,23 +1,26 @@
-<h1>Tasks listing page</h1>
+<h1 class="text-center mt-4">Listing all tasks</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Details</th>
-      <th>Due Date</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.name %></td>
-        <td><%= task.detail %></td>
-        <td><%= task.due_date %></td>
-        <td>Placeholder</td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <% @tasks.each do |task| %>
+    <div class="row justify-content-md-center">
+      <div class="col-8 mt-4">
+        <div class="card text-center shadow mb-5 bg-white rounded">
+          <div class="card-header font-italic">
+            Due on: <%= task.due_date %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to task.name, task_path(task), class: "text-dark" %></h5>
+            <p class="card-text"><%= simple_format(truncate(task.detail, length: 150)) %></p>
+            <%= link_to "View", task_path(task), class: "btn btn-dark" %>
+            <%= link_to "Edit", edit_task_path(task), class: "btn btn-dark" %>
+            <%= link_to "Delete", task_path(task), class: "btn btn-dark", method: :delete, data: {confirm: "Do you want to proceed in deleting the task?"} %>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Created <%= time_ago_in_words(task.created_at) %> ago,
+            edited <%= time_ago_in_words(task.updated_at) %> ago</small>
+          </div>
+          </div>
+        </div>
+    </div>
+  <% end %>
+</div>
