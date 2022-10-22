@@ -1,5 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%= link_to "Occupied", root_path, class: "navbar-brand", id: "logo" %>
+  <%= link_to "Lis", root_path, class: "navbar-brand", id: "logo" %>
+  <span id="nav-span">TED</span>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -16,7 +17,7 @@
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">About</a>
+          <%= link_to "Sign up", signup_path, class: "nav-link" %>
         </li>
       </ul>
     <form class="form-inline my-2 my-lg-0">
