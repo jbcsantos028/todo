@@ -1,11 +1,12 @@
 class TasksController < ApplicationController
+  before_action :require_user
   before_action :set_task, only: [:show, :edit, :update, :destroy]
-
+  
   def show
   end
 
   def index
-    @tasks = Task.all
+    @tasks = current_user.tasks
   end
 
   def new
@@ -16,7 +17,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = current_user.tasks.build(task_params)
     if @task.save
       flash[:notice] = "Task was created successfully."
       redirect_to task_path(@task)
@@ -42,7 +43,9 @@ class TasksController < ApplicationController
   private
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id]) 
+  rescue ActiveRecord::RecordNotFound
+    redirect_to tasks_path, notice: "No such task associated to the current user."
   end
 
   def task_params

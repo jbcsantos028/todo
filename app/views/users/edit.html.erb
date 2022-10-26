@@ -1,2 +1,8 @@
 <h1 class="text-center mt-4">Edit user account</h1>
 <%= render 'form' %>
+<div id="delete-user-container" class="container mt-4">
+  <h1 class="text-center mb-4 ">Danger Zone</h1> 
+  <div class="row justify-content-center shadow p-5 mb-3 rounded">
+    <%= link_to 'Delete my account', user_path(current_user), class: "btn btn-danger btn-lg", method: :delete, data: {confirm: "Do you want to proceed in deleting your account?"} %>
+  </div>
+</div>
