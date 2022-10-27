@@ -1,0 +1,7 @@
+<h1 class="text-center mt-4">Category: <%= @category.title %></h1>
+<div class="text-center mt-4">
+  <%= link_to "Edit category", edit_category_path(@category), class: "btn btn-outline-dark" %>
+  <%= link_to 'Delete', category_path(@category), class: "btn btn-outline-danger", method: :delete, data: {confirm: "Do you want to proceed in deleting the category?"} %>
+</div>
+<h3 class="text-center mt-4">Tasks</h3>
+<%= render 'tasks/task' %>

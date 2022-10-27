@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    redirect_to tasks_path if logged_in?
+    redirect_to categories_path if logged_in?
   end
 
   def create
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Signed in successfully"
-      redirect_to tasks_path
+      redirect_to categories_path
     else
       flash.now[:alert] = "Invalid email or password"
       render :new

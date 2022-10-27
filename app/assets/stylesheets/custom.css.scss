@@ -9,7 +9,6 @@
 }
 
 #logo {
-  float: left;
   font-size: 1.7em;
   color: #fff;
   letter-spacing: -1px;
@@ -17,12 +16,17 @@
   margin-right: 0
 }
 
+#nav-div {
+  text-align: center;
+}
+
 #nav-span {
-  float: left;
   font-size: 1.7em;
   color: #e62b1e;
   letter-spacing: -1px;
   font-weight: bold;
+  display: inline-block;
+  margin-left: -4px
 }
 
 html,

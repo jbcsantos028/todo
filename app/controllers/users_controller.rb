@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def new
     if logged_in?
       flash[:alert] = "Access denied."
-      redirect_to tasks_path
+      redirect_to categories_path
     else
       @user = User.new
     end
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:notice] = "Your account information was updated successfully."
-      redirect_to tasks_path
+      redirect_to categories_path
     else
       render :edit
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "Welcome to Listed. You have successfully signed up!"
-      redirect_to tasks_path
+      redirect_to categories_path
     else
       render :new
     end

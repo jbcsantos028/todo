@@ -23,6 +23,22 @@
             <%= f.date_field :due_date, class: "form-control shadow rounded" %>
           </div>
         </div>
+
+        <div class="form-group row">
+          <%= f.label :category, class: "col-2 col-form-label" %>
+          <div class="col-10">
+            <%= f.collection_select(:category_id, current_user.categories, :id, :title,
+            {}, { class: "custom-select shadow rounded" }) %> 
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :completed, "Completed?", class: "col-2 col-form-label " %>
+          <div class="col-10">
+            <%= f.check_box :completed, class: "form-control rounded col-1" %>
+          </div>
+        </div>
+
         <br/>
         <div class="form-group row justify-content-center">
           <%= f.submit class: "btn btn-dark btn-lg" %>

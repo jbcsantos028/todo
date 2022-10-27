@@ -40,6 +40,10 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def today
+    @tasks = current_user.tasks.where('due_date = ?', Date.current)
+  end
+
   private
 
   def set_task
@@ -49,7 +53,7 @@ class TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:name, :detail, :due_date)
+    params.require(:task).permit(:name, :detail, :due_date, :category_id, :completed)
   end
 
 end
