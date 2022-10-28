@@ -1,13 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  detail: MyText
-  due_date: 2022-10-19
+first_task:
+  name: First Task
+  detail: First Task Details
+  due_date: 2022-10-28
   completed: false
+  user: sef
+  category: first_category
 
-two:
-  name: MyString
-  detail: MyText
-  due_date: 2022-10-19
+second_task:
+  name: Second Task
+  detail: Second Task Details
+  due_date: 2022-10-28
   completed: false
+  user: sef
+  category: second_category

@@ -7,6 +7,9 @@
             <div class="card-body">
               <h5 class="card-title"><%= link_to category.title, category_path(category), class: "text-dark" %></h5>
               <p class="card-text"><%= pluralize(category.tasks.count, "task") %></p>
+              <%= link_to "View", category_path(category), class: "btn btn-dark" %>
+              <%= link_to "Edit", edit_category_path(category), class: "btn btn-dark" %>
+              <%= link_to "Delete", category_path(category), class: "btn btn-danger", method: :delete, data: {confirm: "Do you want to proceed in deleting the category?"} %>
             </div>
             <div class="card-footer text-muted">
               <small>Created <%= time_ago_in_words(category.created_at) %> ago,

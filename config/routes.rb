@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :tasks
   get 'signup', to: 'users#new'
   resources :users, except: [:new, :show, :index]
-  get 'login', to: 'sessions#new'
+  get 'login', to: 'sessions#new', as: 'new_user_session'
   post 'login', to: 'sessions#create'
   delete 'logout', to: 'sessions#destroy'
   resources :categories

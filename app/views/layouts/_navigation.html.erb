@@ -32,7 +32,7 @@
             <%= link_to "Welcome, #{current_user.email}!", tasks_path, class: "nav-link disabled" %>
           </li>
           <li class="nav-item">
-            <%= link_to "Edit profile",edit_user_path(current_user), class: "nav-link" %>
+            <%= link_to "Update profile",edit_user_path(current_user), class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Log out", logout_path, class: "nav-link", method: :delete %>
@@ -42,7 +42,7 @@
           <%= link_to "Sign up", signup_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
-          <%= link_to "Log in", login_path, class: "nav-link" %>
+          <%= link_to "Sign in", login_path, class: "nav-link" %>
           </li>
         <% end %>
       </ul>

@@ -1,0 +1,4 @@
+sef:
+  email: sef@gmail.com
+  password_digest: <%= BCrypt::Password.create('123456') %>
+  
